@@ -1,43 +1,95 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-
+    <title>Estados do Brasil</title>
     <style>
         body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        header {
-            background-color: #1565C0; /* Azul um pouco mais escuro */
-            color: white;
+            font-family: Arial, sans-serif;
             text-align: center;
-            padding: 30px;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .botoes-container {
+            margin-bottom: 30px;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .conteudo {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: none;
+        }
+        .conteudo img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .conteudo h2 {
+            margin-top: 0;
+            color: #222;
+        }
+        .conteudo p {
+            color: #666;
+            line-height: 1.6;
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>Eu sou o erick</h1>
-        <p>eu quero guanhar nota.</p>
-    </header>
+    <h1>Selecione um Estado</h1>
+    
+    <div class="botoes-container">
+        <button onclick="mostrarEstado('São Paulo', 'https://images.unsplash.com/photo-1543556030-c1f49455a5fc?w=600', 'São Paulo é o principal centro financeiro, corporativo e mercantil da América do Sul. É a cidade mais populosa do Brasil e possui uma rica diversidade cultural.')">São Paulo</button>
+        
+        <button onclick="mostrarEstado('Paraná', 'https://images.unsplash.com/photo-1585123334904-845d60e97b29?w=600', 'O Paraná é um estado do sul do Brasil conhecido por suas belezas naturais, com destaque para as Cataratas do Iguaçu. Sua capital, Curitiba, é famosa pelo planejamento urbano e áreas verdes.')">Paraná</button>
+    </div>
 
-    <main>
-        <article>
-            <h2>quero 100</h2>
-            <p><strong>Por:</strong> Erick</p>
-            <p>
-                por favor quero nota 10
-            </p>
-        </article>
-    </main>
+    <div id="card-estado" class="conteudo">
+        <img id="foto-estado" src="" alt="Imagem do Estado">
+        <h2 id="nome-estado"></h2>
+        <p id="descricao-estado"></p>
+    </div>
+
+    <script>
+        function mostrarEstado(nome, urlImagem, descricao) {
+            const card = document.getElementById('card-estado');
+            const elementoFoto = document.getElementById('foto-estado');
+            const elementoNome = document.getElementById('nome-estado');
+            const elementoDescricao = document.getElementById('descricao-estado');
+
+            // Insere a foto, o título e o texto
+            elementoFoto.src = urlImagem;
+            elementoFoto.alt = "Foto de " + nome;
+            elementoNome.innerText = nome;
+            elementoDescricao.innerText = descricao;
+
+            // Mostra o bloco na tela
+            card.style.display = 'block';
+        }
+    </script>
 
 </body>
-
 </html>
